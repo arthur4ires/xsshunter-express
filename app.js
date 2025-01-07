@@ -43,7 +43,8 @@ const XSS_PAYLOAD = fs.readFileSync(
 );
 
 var multer = require('multer');
-var upload = multer({ dest: '/tmp/' })
+var upload = multer({ dest: '/tmp/',limits: { fieldSize: 2 * 1024 * 1024 }})
+
 const SCREENSHOTS_DIR = path.resolve(process.env.SCREENSHOTS_DIR);
 const SCREENSHOT_FILENAME_REGEX = new RegExp(/^[0-9A-F]{8}-[0-9A-F]{4}-4[0-9A-F]{3}-[89AB][0-9A-F]{3}-[0-9A-F]{12}\.png$/i);
 
